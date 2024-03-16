@@ -1,9 +1,10 @@
 #define LED1 13
 #define LED2 12
 #define LED3 11
+//asi podemos  definir los leds d emanera mas eficiente
 
 bool option = false;
-
+//menu
 void main_menu() {
   Serial.println(":::: MAIN MENU ::::");
   Serial.println("[1]. Turn on led1");
