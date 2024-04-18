@@ -40,11 +40,47 @@ sensors_model_query = '''
         deleted_at TIMESTAMP NULL
     );
 '''
+datos_sensor_query = '''
+    CREATE TABLE IF  NOT  EXISTS datos_sensor (
+        id INTEGER PRIMARY KEY,
+	dates double,
+	
+        description TEXT NULL,
+        status BOOLEAN DEFAULT true,
+        created_at TIMESTAMP DEFAULT (datetime('now','localtime')),
+        updated_at TIMESTAMP DEFAULT (datetime('now','localtime')),
+        deleted_at TIMESTAMP NULL
+	sensor_tipo_id INTEGER NULL 
+    );
+'''
+sensors_type_query = '''
+    CREATE TABLE IF NOT EXISTS sensors_type(
+        id INTEGER PRIMARY KEY,
+        status BOOLEAN DEFAULT true,        
+        created_at TIMESTAMP DEFAULT (datetime('now','localtime')),
+        updated_at TIMESTAMP DEFAULT (datetime('now','localtime')),
+        deleted_at TIMESTAMP NULL
+	tipo_id INTEGER NULL 
+    );
+'''
+type_query = '''
+    CREATE TABLE IF NOT EXISTS type(
+        id INTEGER PRIMARY KEY,
+	extent VARCHAR NULL,
+        status BOOLEAN DEFAULT true,        
+        created_at TIMESTAMP DEFAULT (datetime('now','localtime')),
+        updated_at TIMESTAMP DEFAULT (datetime('now','localtime')),
+        deleted_at TIMESTAMP NULL
+	tipo_id INTEGER NULL 
+    );
+'''
 
 #5. Excute queris
 cur.execute(zones_model_query)
 cur.execute(sensors_model_query)
-
+cur.execute(datos_sensor_query)
+cur.execute(sensors_type_query)
+cur.execute(type_query)
 #6.  Save  changes in DB => Push to database
 con.commit()
 
