@@ -43,14 +43,13 @@ sensors_model_query = '''
 datos_sensor_query = '''
     CREATE TABLE IF  NOT  EXISTS datos_sensor (
         id INTEGER PRIMARY KEY,
-	dates double,
-	
+	    dates double,
         description TEXT NULL,
         status BOOLEAN DEFAULT true,
         created_at TIMESTAMP DEFAULT (datetime('now','localtime')),
         updated_at TIMESTAMP DEFAULT (datetime('now','localtime')),
-        deleted_at TIMESTAMP NULL
-	sensor_tipo_id INTEGER NULL 
+        deleted_at TIMESTAMP NULL,
+	    sensor_tipo_id INTEGER NULL 
     );
 '''
 sensors_type_query = '''
@@ -59,19 +58,19 @@ sensors_type_query = '''
         status BOOLEAN DEFAULT true,        
         created_at TIMESTAMP DEFAULT (datetime('now','localtime')),
         updated_at TIMESTAMP DEFAULT (datetime('now','localtime')),
-        deleted_at TIMESTAMP NULL
+        deleted_at TIMESTAMP NULL,
 	tipo_id INTEGER NULL 
     );
 '''
 type_query = '''
     CREATE TABLE IF NOT EXISTS type(
         id INTEGER PRIMARY KEY,
-	extent VARCHAR NULL,
+	    extent VARCHAR NULL,
         status BOOLEAN DEFAULT true,        
         created_at TIMESTAMP DEFAULT (datetime('now','localtime')),
         updated_at TIMESTAMP DEFAULT (datetime('now','localtime')),
-        deleted_at TIMESTAMP NULL
-	tipo_id INTEGER NULL 
+        deleted_at TIMESTAMP NULL,
+	    tipo_id INTEGER NULL 
     );
 '''
 
